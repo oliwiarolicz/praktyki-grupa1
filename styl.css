@@ -1,0 +1,93 @@
+
+body{
+    font-family: Arial, sans-serif; 
+     margin: 50px;
+     background-color: #1f474e;
+    /*background: linear-gradient(to right, #0C8382, #FFFFFF);*/
+}
+
+.dzien{
+    width: 100%;
+}
+.img{
+    float: right;
+    padding: 10%;
+}
+.strona {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolumny o równej szerokości */
+    gap: 10px;
+    color: white;
+    font-size: large;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+
+    padding: 20px;
+    text-align:center;
+}
+
+
+
+.strona>.pogoda{
+    grid-column: 2;
+    grid-row: 3;
+   
+    
+}
+
+.strona>.wilgotnosc{
+    grid-column: 3;
+    grid-row: 4;
+    
+}
+.strona>.uv{
+    grid-column: 2;
+    grid-row: 4;
+    
+}
+.strona>.odczuwalna{
+
+    grid-column: 3;
+    grid-row: 3;
+    
+}
+
+.strona>.puste1{
+    grid-column: 2 /span 2;
+    grid-row: 1;
+    
+}
+
+.strona>.puste2{
+    grid-column: 1;
+    grid-row: 2 /span 3;
+    
+}
+
+.strona>.puste3{
+    grid-column: 4;
+    grid-row: 2 /span 3;
+    
+}
+
+
+.strona>.godzina{
+    grid-column: 1;
+    grid-row: 1;
+    font-size:xx-large;
+    
+    
+}
+
+.strona>.dzien{
+    grid-column: 2 /span 2;
+    grid-row: 2;
+    
+}
+
+.strona>.img{
+    grid-column: 4;
+    grid-row: 1;
+    
+}
