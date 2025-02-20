@@ -1,5 +1,5 @@
 from http.client import responses
-
+import json
 import requests
 import time
 import sqlite3
@@ -24,14 +24,24 @@ cursor = conn.cursor()
 cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
 if not cursor.fetchone():
     print("nie widze tabeli swietazdrowie")
-    swieto = "brak swieta na dzis"
+    swieto = ""
+
 else:
     cursor.execute("SELECT Nazwa FROM swietazdrowie WHERE Data=?", (dzisiaj,))
-    swieto=cursor.fetchone()
+    swieto1=cursor.fetchone()
+    swieto = ", dziś jest także {swieto1}"
 
 if not swieto:
-        swieto = "brak swieta na dzis"
+        swieto = ""
 #swieto = cursor.fetchall()
+
+
+with open("pl.json", "r", encoding="utf-8") as file:
+    imieniny = json.load(file)
+
+dzisiaj = datetime.today().strftime("%d-%m")
+
+imiona = imieniny[dzisiaj]["nameday"]
 
 
 
@@ -60,13 +70,6 @@ def plik_html():
 
 
     conn.close()
-    #swieto="jakies swieto"
-    #temperatura="jakas pogoda"
-    #odczuwalnaTemperatura="jakas odczuwalna temperatura"
-    indexUV="jakis index UV"
-    #wilgotnosc="jakas wilgotnosc powietrza"
-    imieniny="jakies imieniny"
-    #opis="jakis opis"
 
     htmlcontent = f"""<!DOCTYPE html>
     <html lang="pl">
@@ -87,7 +90,7 @@ def plik_html():
                     <h1></h1> 
                 </div>
                 <div class="dzien">
-                    <h1>Dzień dobry,<br> dzisiaj imieniny obchodzą {imieniny}, dziś jest także {swieto}</h1> 
+                    <h1>Dzień dobry,<br> dzisiaj imieniny obchodzi {', '.join(imiona)}</h1> 
                 </div>
                 <div class="zdj">
                     <img src="tlo_czarne.png">
@@ -105,7 +108,7 @@ def plik_html():
                 </div>
                 <div class="uv">
                     <h1>Index UV</h1>
-                    <p>{indexUV}</p>
+                    <p>index</p>
                 </div>
                 <div class="odczuwalna">
                     <h1>Odczuwalna temperatura</h1>
