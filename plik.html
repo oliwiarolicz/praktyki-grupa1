@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+    <html lang="pl">
+        <head>
+            <meta charset="utf-8">
+            <title>Pogoda Gedia</title>
+            <link rel="stylesheet" href="styl.css">
+        </head>
+        <body>
+            <div class="strona">
+                <div class="puste1">
+                    <h1></h1> 
+                </div>
+                <div class="puste2">
+                    <h1></h1> 
+                </div>
+                <div class="puste3">
+                    <h1></h1> 
+                </div>
+                <div class="dzien">
+                    <h1>Dzień dobry,<br> dzisiaj imieniny obchodzi {{ imieniny }}{{ swieto }}</h1> 
+                </div>
+                <div class="zdj">
+                    <img src="tlo_czarne.png">
+                </div>
+                <div class="godzina">
+                    <h1 id="czas"></h1>
+                </div>
+                <div class="pogoda">
+                    <h1>Pogoda</h1>
+                    <p id="pogoda">{{ temperatura }}°C, {{ opis }}</p>
+                </div>
+                <div class="wilgotnosc">
+                    <h1>Wilgotność powietrza</h1>
+                    <p id="wilgotnosc">{{ wilgotnosc }}%</p>
+                </div>
+                <div class="zachmurzenie">
+                    <h1>Zachmurzenie</h1>
+                    <p>{{ zachmurzenie }}%</p>
+                    
+
+                </div>
+                <div class="odczuwalna">
+                    <h1>Odczuwalna temperatura</h1>
+                    <p id="odczuwalna">{{ odczuwalna }}°C</p>
+                </div>
+            </div>
+            <script src="plik.js"></script>
+        </body>
+    </html>
